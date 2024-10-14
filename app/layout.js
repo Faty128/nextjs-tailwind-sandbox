@@ -1,5 +1,7 @@
 // import localFont from "next/font/local";
+import MainLayout from "@/components/MainLayout";
 import "./globals.css";
+import MenuContextProvider from "@/context/MenuContext";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -20,7 +22,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+      <MenuContextProvider>
+        <MainLayout>{children}</MainLayout>
+      </MenuContextProvider>
+      </body>
     </html>
   );
 }
